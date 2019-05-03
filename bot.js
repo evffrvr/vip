@@ -1,6 +1,15 @@
+const Discord = require('discord.js');
+const client = new Discord.Client();
+
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`);
+});
+
+
+
 let vipKeys = JSON.parse(fs.readFileSync("./vipKeys.json", "utf8"));
 client.on("message", msg=>{
-let id = "523865295337553921"; // ايديك
+let id = "530086791152140298"; // ايديك
 let role = "VIP"; // اسم رتبة الفيب
 let Price = 15000; // السعر
 let Price2 = Math.floor(Price-(Price*(1/100)));
@@ -33,7 +42,7 @@ if(!roleW) return msg.reply(`البوت مقفل لعدم وجود رتبة ب �
 msg.channel.send(`كردت بروبوت\`${Price}\` لديك 4 دقائق لتحويل
 إلى ${msg.guild.members.get(id)}
 `).then( msgs =>{
-const filter = response => response.author.id == "282859044593598464" && response.mentions._content.includes(`:moneybag: | ${msg.author.username}, has transferred \`$${Price2}\` to ${msg.guild.members.get(id)}`);
+const filter = response => response.author.id == "513385931319934988" && response.mentions._content.includes(`:moneybag: | ${msg.author.username}, has transferred \`$${Price2}\` to ${msg.guild.members.get(id)}`);
 msg.channel.awaitMessages(filter, { maxMatches: 1, time: 240000, errors: ['time'] })
 .then( collected =>{
 msgs.delete()
@@ -48,7 +57,7 @@ giftc.on("collect", r=>{
 msg.channel.send(`كردت بروبوت\`${Price}\` لديك 4 دقائق لتحويل
 إلى ${msg.guild.members.get(id)}
 `).then( msgs =>{
-  const filter = response => response.author.id == "282859044593598464" && response.mentions._content.includes(`:moneybag: | ${msg.author.username}, has transferred \`$${Price2}\` to ${msg.guild.members.get(id)}`);
+  const filter = response => response.author.id == "513385931319934988" && response.mentions._content.includes(`:moneybag: | ${msg.author.username}, has transferred \`$${Price2}\` to ${msg.guild.members.get(id)}`);
   msg.channel.awaitMessages(filter, { maxMatches: 1, time: 240000, errors: ['time'] })
   .then( collected =>{
   msgs.delete()
@@ -127,3 +136,8 @@ function save(){
   });
  
 }
+
+
+
+
+client.login(process.env.BOT_TOKEN);
