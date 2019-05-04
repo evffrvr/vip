@@ -11,12 +11,12 @@ client.on('ready', () => {
 let vipKeys = JSON.parse(fs.readFileSync("./vipKeys.json", "utf8"));
 client.on("message", msg=>{
 let id = "530086791152140298"; // ايديك
-let role = "VIP"; // اسم رتبة الفيب
+let role = "public-seller"; // اسم رتبة الفيب
 let Price = 15000; // السعر
 let Price2 = Math.floor(Price-(Price*(1/100)));
 if(!Price || Price < 1) return;
 let cmd = msg.content.split(' ')[0];
-if(cmd === `-buy`){
+if(cmd === "-buy"){
 if(msg.author.bot) return;
 if(!msg.channel.guild) return;
 let embedvip = new Discord.RichEmbed()
