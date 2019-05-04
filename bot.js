@@ -13,7 +13,7 @@ client.on("message", msg=>{
 let id = "530086791152140298"; // ايديك
 let role = "public-seller"; // اسم رتبة الفيب
 let Price = 15000; // السعر
-let Price2 = Math.floor(Price-(Price*(1/100)));
+let Price2 = Math.floor(Price-(Price*(5/100)));
 if(!Price || Price < 1) return;
 let cmd = msg.content.split(' ')[0];
 if(cmd === `${prefix}buy`){
